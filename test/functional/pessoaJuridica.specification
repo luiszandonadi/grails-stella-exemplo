@@ -1,0 +1,10 @@
+import exemplo.PessoaJuridica
+
+description "Um cnpj é válido somente-se seguir o padrão ##.###.###/####-##"
+
+it "Deveria persistir uma pessoa com cnpj válido",{
+        new PessoaJuridica(cnpj:'00.000.000/0000-00').save().id.shouldNotBe null
+}
+it "Deveria persistir uma pessoa com cnpj inválido",{
+        new PessoaJuridica(cnpj: '00.000.000-0000-00').save().shouldBe null
+}

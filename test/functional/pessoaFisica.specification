@@ -3,8 +3,8 @@ import exemplo.PessoaFisica
 description "Um cpf é válido somente-se seguir o padrão ###.###.###-##"
 
 it "Deveria persistir uma pessoa com cpf válido",{
-        new PessoaFisica(cpf:'111.111.111-11').save().id.shouldNotBe null
+    new PessoaFisica(cpf:'111.111.111-11').save().id.shouldNotBe null
 }
-it "Deveria persistir uma pessoa com cpf inválido",{
-        new PessoaFisica(cpf:'111.111.111.11').save().shouldBe null
+it "Não Deveria persistir uma pessoa com cpf inválido",{
+    new PessoaFisica(cpf:'111.111.111.11').save().shouldBe null
 }
